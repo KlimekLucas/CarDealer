@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Workers</title>
+</head>
+<body>
+<h1>Hired Workers</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Adress</th>
+        <th>Hire date</th>
+        <th>Roles</th>
+
+    </tr>
+    <tr th:each="worker , iterationInfo : ${workersList}">
+        <td th:text="${worker.id}"/>
+        <td th:text="${worker.name}"/>
+        <td th:text="${worker.lastName}"/>
+        <td th:text="${worker.adress}"/>
+        <td th:text="${worker.hireDate}"/>
+        <td th:text="${worker.roles}"/>
+
+        <td th:text="${iterationInfo.count + ' of total ' + iterationInfo.size}"/>
+        <td><a th:href="@{/workers/{workerId}/fire(workerId=${worker.id})}" th:text="fire"/></td>
+    </tr>
+</table>
+
+</body>
+</html>

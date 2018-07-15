@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dodaj samochód</title>
+</head>
+<body>
+<h1>Dodaj Samochód</h1>
+
+<main>
+    <div id="tabelaDodawania">
+
+<form th:action="@{/vehicles/vehicles}" th:object="${addedvehicle}" method="post">
+
+
+    <table>
+        <tr>
+            <td>Data produkcji</td>
+            <td>
+                <input type="number" th:field="*{ProductionDate}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>marka</td>
+            <td>
+                <input type="text" th:field="*{manufacturer}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>model</td>
+            <td>
+                <input type="text" th:field="*{model}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>numer OC</td>
+            <td>
+                <input type="text" th:field="*{OCNumber}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>numer dowodu rejestracyjnego/td>
+            <td>
+                <input type="text" th:field="*{IDNumber}"/>
+            </td>
+        </tr>
+        <tr>
+        <td>rodzaj paliwa</td>
+        <td>
+            <input type="text" th:field="*{fuel}"/>
+        </td>
+        <tr>
+            <td>przebieg</td>
+            <td>
+                <input type="text" th:field="*{milage}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>silnik</td>
+            <td>
+                <input type="text" th:field="*{engine}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>moc</td>
+            <td>
+                <input type="text" th:field="*{power}"/>
+            </td>
+        </tr>
+        <tr>
+        <tr>
+            <td>skrzynia biegów</td>
+            <td>
+                <input type="text" th:field="*{gearbox}"/>
+            </td>
+        </tr>
+        <tr>
+        <tr>
+            <td>dodatkowy opis</td>
+            <td>
+                <input type="text" th:field="*{desctipton}"/>
+            </td>
+        </tr>
+        <tr>
+        <tr>
+            <td>ilość jazd testowych</td>
+            <td>
+                <input type="text" th:field="*{TestDives}"/>
+            </td>
+        </tr>
+
+    </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Add Vehicle" />
+            </td>
+        </tr>
+    </table>
+</form>
+    </div>
+</main>
+
+</body>
+</html>

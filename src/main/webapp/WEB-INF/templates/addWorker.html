@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dodaj pracownika</title>
+</head>
+<body>
+<h1>Dodaj pracownika</h1>
+
+<main>
+    <div id="tabelaDodawaniaPracowników">
+
+<form th:action="@{/workers/workers}" th:object="${addedWorker}" method="post">
+
+
+    <table>
+        <tr>
+            <td>Imie</td>
+            <td>
+                <input type="text" th:field="*{name}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Nazwisko</td>
+            <td>
+                <input type="text" th:field="*{lastName}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Adres</td>
+            <td>
+                <input type="text" th:field="*{adress}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>data zatrudnienia</td>
+            <td>
+                <input type="date" th:field="*{hireDate}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Stanowisko</td>
+            <td>
+                <input type="text" th:field="*{roles}"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Dodaj pracownika" />
+            </td>
+        </tr>
+    </table>
+</form>
+    </div>
+</main>
+
+</body>
+</html>
