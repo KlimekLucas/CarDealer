@@ -28,17 +28,14 @@ public class VehicleController {
     @GetMapping("/new")
     public String addVehicleForm(Model model) {
         model.addAttribute("addedvehicle", new VehicleDto());
-        System.out.println("tworzenie");
         return "addVehicle";
     }
 
 
     @PostMapping("/vehicles")
-    public String saveBook(@ModelAttribute VehicleDto addvehicle) {
-        System.out.println("im trying");
+    public String saveVehicle(@ModelAttribute VehicleDto addvehicle) {
         try {
             carDataService.addVehicle(addvehicle);
-            System.out.println("zapis");
         } catch (ParseException e) {
             e.printStackTrace();
         }

@@ -41,7 +41,7 @@
         <td th:text="${vehicle.sold}"/>
 
         <td th:text="${iterationInfo.count + ' of total ' + iterationInfo.size}"/>
-        <td><a th:href="@{/vehicles/{vehicleId}/fire(vehicleId=${vehicle.id})}" th:text="sprzedaj"/></td>
+        <td><a th:href="@{/sells/sell}" th:text="sprzedaj"/></td>
     </tr>
 </table>
 

@@ -1,31 +1,26 @@
-package sda.Komis.Komis.model;
+package sda.Komis.Komis.dto;
 
+import sda.Komis.Komis.model.Client;
+import sda.Komis.Komis.model.Vehicle;
+import sda.Komis.Komis.model.Worker;
 
-import lombok.Data;
-
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Data
-public class Sell extends BaseModel implements Serializable{
-    @OneToOne
-    private Client client;
-    @OneToOne
-    private Worker worker;
-    @OneToOne
-    private Vehicle vehicle;
-    private Date sellingDate;
-    private Integer price;
+public class SellDto {
+
+    private String client;
+    private String worker;
+    private String vehicle;
+    private String sellingDate;
+    private String price;
     private String agreement;
     private String invoice;
 
 
-    public Sell() {
+    public SellDto() {
     }
 
-    public Sell(Client client, Worker worker, Vehicle vehicle, Date sellingDate, Integer price, String agreement, String invoice) {
+    public SellDto(String client, String worker, String vehicle, String sellingDate, String price, String agreement, String invoice) {
         this.client = client;
         this.worker = worker;
         this.vehicle = vehicle;
@@ -35,43 +30,44 @@ public class Sell extends BaseModel implements Serializable{
         this.invoice = invoice;
     }
 
-    public Client getClient() {
+
+    public String getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
+    public void setClient(String client) {
         this.client = client;
     }
 
-    public Worker getWorker() {
+    public String getWorker() {
         return worker;
     }
 
-    public void setWorker(Worker worker) {
+    public void setWorker(String worker) {
         this.worker = worker;
     }
 
-    public Vehicle getVehicle() {
+    public String getVehicle() {
         return vehicle;
     }
 
-    public void setVehicle(Vehicle vehicle) {
+    public void setVehicle(String vehicle) {
         this.vehicle = vehicle;
     }
 
-    public Date getSellingDate() {
+    public String getSellingDate() {
         return sellingDate;
     }
 
-    public void setSellingDate(Date sellingDate) {
+    public void setSellingDate(String sellingDate) {
         this.sellingDate = sellingDate;
     }
 
-    public Integer getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sells</title>
+</head>
+<body>
+<h1>Sprzedane samochody</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Klient</th>
+        <th>Pracownik</th>
+        <th>pojazd</th>
+        <th>data sprzedaży</th>
+        <th>cena</th>
+        <th>umowa</th>
+        <th>faktura</th>
+
+    </tr>
+    <tr th:each="sell , iterationInfo : ${sellsList}">
+        <td th:text="${sell.id}"/>
+        <td th:text="${sell.client.lastName}"/>
+        <td th:text="${sell.worker.lastName}"/>
+        <td th:text="${sell.vehicle.manufacturer}"/>
+        <td th:text="${sell.sellingDate}"/>
+        <td th:text="${sell.price}"/>
+        <td th:text="${sell.agreement}"/>
+        <td th:text="${sell.invoice}"/>
+
+        <td th:text="${iterationInfo.count + ' of total ' + iterationInfo.size}"/>
+        <td><a th:href="@{/sells/{sellId}/fire(sellId=${sell.id})}" th:text="drukuj"/></td>
+    </tr>
+</table>
+
+</body>
+</html>

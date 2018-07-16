@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sprzedaj samochód</title>
+</head>
+<body>
+<h1>Sprzedaj Samochód</h1>
+
+<main>
+    <div id="tabelaDodawania">
+
+        <form th:action="@{/sells/sells}" th:object="${soldVehicle}" method="post">
+
+
+            <table>
+                <tr>
+                    <td>klient</td>
+                    <td>
+                        <input type="text" th:field="*{client}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>pracownik</td>
+                    <td>
+                        <input type="text" th:field="*{worker}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>pojazd</td>
+                    <td>
+                        <input type="text" th:field="*{vehicle}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Data sprzedaży</td>
+                    <td>
+                        <input type="date" th:field="*{sellingDate}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>cena</td>
+                    <td>
+                        <input type="text" th:field="*{price}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>umowa</td>
+                    <td>
+                        <input type="text" th:field="*{agreement}"/>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>faktura</td>
+                    <td>
+                        <input type="text" th:field="*{invoice}"/>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Sell Vehicle" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

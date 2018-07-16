@@ -5,6 +5,7 @@ import lombok.Data;
 import sda.Komis.Komis.dto.WorkerDto;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,7 +15,7 @@ import java.util.Set;
 
 @Entity
 @Data
-public class Worker extends BaseModel {
+public class Worker extends BaseModel implements Serializable {
 
     private String name;
     private String lastName;

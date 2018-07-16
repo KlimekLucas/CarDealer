@@ -3,11 +3,12 @@ package sda.Komis.Komis.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
 @Data
-public class Fuel {
+public class Fuel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

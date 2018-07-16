@@ -34,7 +34,7 @@ public class WorkerController {
     }
 
     @PostMapping("/workers")
-    public String saveBook(@ModelAttribute WorkerDto addedWorker) {
+    public String saveWorker(@ModelAttribute WorkerDto addedWorker) {
         try {
             workerService.addWorker(addedWorker);
         } catch (ParseException e) {
