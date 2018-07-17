@@ -10,8 +10,10 @@ import java.util.Optional;
 import java.util.Set;
 
 public interface CarDataService {
-    Optional<Vehicle> loadCarsThatCanBeSold();
+    Set<Vehicle> loadCarsThatCanBeSold();
+    Set<Vehicle> loadSoldCars();
     Vehicle addVehicle(VehicleDto newVehicleToBeSaved) throws ParseException;;
-    Optional<Vehicle> getVehicleById(Long vehicleId);
+    Vehicle getVehicleById(Long vehicleId);
     Set<Vehicle> getAll();
+
 }

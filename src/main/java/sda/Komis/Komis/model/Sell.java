@@ -10,11 +10,15 @@ import java.util.Date;
 @Entity
 @Data
 public class Sell extends BaseModel implements Serializable{
+
     @OneToOne
+    @JoinColumn(name = "clientId")
     private Client client;
     @OneToOne
+    @JoinColumn(name = "workerId")
     private Worker worker;
     @OneToOne
+    @JoinColumn(name = "vehicleId")
     private Vehicle vehicle;
     private Date sellingDate;
     private Integer price;

@@ -39,22 +39,22 @@ public class DefaultSellService implements SellService {
     @Override
     public Sell addSell(SellDto sellVehicle) throws ParseException {
         Sell sell = new Sell();
-        System.out.println("creating....................................................................>");
+
         sell.setInvoice(sellVehicle.getInvoice());
         sell.setPrice(Integer.valueOf(sellVehicle.getPrice()));
         sell.setAgreement(sellVehicle.getAgreement());
-        System.out.println("data....................................................................>");
+
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
         sell.setSellingDate(simpleDateFormat.parse(sellVehicle.getSellingDate()));
-        System.out.println("client....................................................................>");
+
         Optional<Client> client = clientRepository.findById(Long.valueOf(sellVehicle.getClient()));
         System.out.println(client.get().getId()+"ID klienta");
         System.out.println(client.toString()+"klient");
         sell.setClient(client.get());
-        System.out.println("zapis auto....................................................................>");
+
         Optional<Vehicle> vehicle = vehicleRepository.findById(Long.valueOf(sellVehicle.getVehicle()));
         sell.setVehicle(vehicle.get());
-        System.out.println("zapis pracown");
+
         Optional<Worker> worker = workerRepository.findById(Long.valueOf(sellVehicle.getWorker()));
         sell.setWorker(worker.get());
 

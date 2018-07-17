@@ -44,9 +44,22 @@ public class VehicleController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public String printAvailableWorkers(Model model) {
-        Set<Vehicle> vehicles = carDataService.getAll();
+    public String printAvailableCars(Model model) {
+        Set<Vehicle> vehicles = carDataService.loadSoldCars();
         model.addAttribute("vehiclesList", vehicles);
-        return "vehiclesList";
+        return "availableVehiclesList";
+    }
+
+
+    @RequestMapping("/{vehicleId}")
+    public String getCar(
+            @PathVariable("vehicleId") Long vehicleId,
+            Model model) {
+        Vehicle vehicle = carDataService.getVehicleById(vehicleId);
+        if (vehicle != null) {
+            model.addAttribute("vehicle", vehicle);
+        }
+        return "vehicleDetails";
+
     }
 }

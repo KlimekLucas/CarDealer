@@ -2,12 +2,15 @@ package sda.Komis.Komis.dto;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 
 public class WorkerDto {
 
+
     private String name;
+    @NotNull
     private String lastName;
     private String adress;
     private String hireDate;

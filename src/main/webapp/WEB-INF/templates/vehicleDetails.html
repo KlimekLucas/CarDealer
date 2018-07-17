@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${vehicle.manufacturer + ' ' + vehicle.model}"></title>
+</head>
+<body>
+<table th:object="${vehicle}" style="border: 1px solid black">
+    <tr>
+        <td>Id</td>
+        <td th:text="*{id}"/>
+    </tr>
+    <tr>
+        <td>rocznik</td>
+        <td th:text="*{ProductionDate}"/>
+    </tr>
+    <tr>
+        <td>Marka</td>
+        <td th:text="*{manufacturer}"/>
+    </tr>
+    <tr>
+        <td>Model</td>
+        <td th:text="*{model}"/>
+    </tr>
+    <tr>
+        <td>Numer OC</td>
+        <td th:text="*{OCNumber}"/>
+    </tr>
+    <tr>
+        <td>Numer rejestracyjny</td>
+        <td th:text="*{IDNumber}"/>
+    </tr>
+    <tr>
+        <td>paliwo</td>
+        <td th:text="*{fuel.Type}"/>
+    </tr>
+    <tr>
+        <td>przebieg</td>
+        <td th:text="*{milage}"/>
+    </tr>
+    <tr>
+        <td>silnik</td>
+        <td th:text="*{engine}"/>
+
+    </tr>
+    <tr>
+        <td>moc</td>
+        <td th:text="*{power}"/>
+
+    </tr>
+    <tr>
+        <td>skrzynia</td>
+        <td th:text="*{gearbox}"/>
+
+    </tr>
+    <tr>
+        <td>opis</td>
+        <td th:text="*{desctipton}"/>
+
+    </tr>
+    <tr>
+        <td>liczba jazd próbnych</td>
+        <td th:text="*{TestDives}"/>
+
+    </tr>
+</table>
+</body>
+</html>

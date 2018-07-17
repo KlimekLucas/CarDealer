@@ -29,8 +29,13 @@ public class DefaultCarDataService implements CarDataService {
 
 
     @Override
-    public Optional<Vehicle> loadCarsThatCanBeSold() {
+    public Set<Vehicle> loadCarsThatCanBeSold() {
         return vehicleRepository.findBySoldEquals(true);
+    }
+
+    @Override
+    public Set<Vehicle> loadSoldCars() {
+         return vehicleRepository.findBySoldEquals(false);
     }
 
     @Override
@@ -56,9 +61,10 @@ public class DefaultCarDataService implements CarDataService {
     }
 
     @Override
-    public Optional<Vehicle> getVehicleById(Long vehicleId) {
-
-        return vehicleRepository.findById(vehicleId);
+    public Vehicle getVehicleById(Long vehicleId) {
+        Vehicle vehicle = new Vehicle();
+        vehicle = vehicleRepository.findById(vehicleId).get();
+         return vehicle;
     }
 
     @Override

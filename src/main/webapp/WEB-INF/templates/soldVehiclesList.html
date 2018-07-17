@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sprzedane samochody</title>
+</head>
+<body>
+<h1>Lista Sprzedanych samochodów</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>ProductionDate</th>
+        <th>manufacturer</th>
+        <th>model</th>
+        <th>OCNumber</th>
+        <th>IDNumber</th>
+        <th>fuel</th>
+        <th>milage</th>
+        <th>engine</th>
+        <th>power</th>
+        <th>gearbox</th>
+        <th>desctipton</th>
+        <th>TestDives</th>
+        <th>sold</th>
+
+    </tr>
+    <tr th:each="vehicle , iterationInfo : ${vehiclesList}">
+        <td th:text="${vehicle.id}"/>
+        <td th:text="${vehicle.ProductionDate}"/>
+        <td th:text="${vehicle.manufacturer}"/>
+        <td th:text="${vehicle.model}"/>
+        <td th:text="${vehicle.OCNumber}"/>
+        <td th:text="${vehicle.IDNumber}"/>
+        <td th:text="${vehicle.fuel.Type}"/>
+        <td th:text="${vehicle.milage}"/>
+        <td th:text="${vehicle.engine}"/>
+        <td th:text="${vehicle.power}"/>
+        <td th:text="${vehicle.gearbox}"/>
+        <td th:text="${vehicle.desctipton}"/>
+        <td th:text="${vehicle.TestDives}"/>
+        <td th:text="${vehicle.sold}"/>
+
+        <td th:text="${iterationInfo.count + ' of total ' + iterationInfo.size}"/>
+        <td><a th:href="@{/sells/sell}" th:text="sprzedaj"/></td>
+    </tr>
+</table>
+
+</body>
+</html>
