@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Sprzedaj samochód</title>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
 </head>
 <body>
-<h1>Sprzedaj Samochód</h1>
 
-<main>
+<div id="top">
+    <header id="NAGLOWEK"></header>
+    <nav id="MENU">Menu nawigacyjne</nav>
+    <aside id="INFORMACJE">Sprzedaż Pojazdu</aside>
+    <article id="TRESC">
     <div id="tabelaDodawania">
 
         <form th:action="@{/sells/sells}" th:object="${soldVehicle}" method="post">
@@ -67,6 +71,9 @@
         </form>
     </div>
 </main>
-
+    </article>
+    <footer id="STOPKA">Stopka serwisu</footer>
+</div>
 </body>
+
 </html>

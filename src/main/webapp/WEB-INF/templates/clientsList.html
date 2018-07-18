@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Klienci</title>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
 </head>
 <body>
-<h1>Lista Klientów</h1>
+
+<div id="top">
+    <header id="NAGLOWEK"></header>
+    <nav id="MENU">Menu nawigacyjne</nav>
+    <aside id="INFORMACJE">Lista Klientów</aside>
+    <article id="TRESC">
+        <main>
+            <div id="tabelaDodawania">
 <table>
     <tr>
         <th>Id</th>
@@ -28,6 +36,11 @@
         <td><a th:href="@{/clients/{clientId}/fire(clientId=${client.id})}" th:text="delete"/></td>
     </tr>
 </table>
+            </div>
+        </main>
+    </article>
+    <footer id="STOPKA">Stopka serwisu</footer>
+</div>
 
 </body>
 </html>

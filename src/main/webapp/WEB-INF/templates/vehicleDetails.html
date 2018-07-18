@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8"/>
     <title th:text="${vehicle.manufacturer + ' ' + vehicle.model}"></title>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
 </head>
 <body>
+
+<div id="top">
+    <header id="NAGLOWEK"></header>
+    <nav id="MENU">Menu nawigacyjne</nav>
+    <aside id="INFORMACJE">Szczegóły pojazdu</aside>
+    <article id="TRESC">
+
 <table th:object="${vehicle}" style="border: 1px solid black">
     <tr>
         <td>Id</td>
@@ -64,5 +72,10 @@
 
     </tr>
 </table>
+    </article>
+
+    <footer id="STOPKA">Stopka serwisu</footer>
+</div>
+
 </body>
 </html>

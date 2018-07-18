@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Sells</title>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
 </head>
 <body>
-<h1>Sprzedane samochody</h1>
+
+<div id="top">
+    <header id="NAGLOWEK"></header>
+    <nav id="MENU">Menu nawigacyjne</nav>
+    <aside id="INFORMACJE">Lista sprzedaży</aside>
+    <article id="TRESC">
 <table>
     <tr>
         <th>Id</th>
@@ -32,6 +38,10 @@
         <td><a th:href="@{/sells/{sellId}/fire(sellId=${sell.id})}" th:text="drukuj"/></td>
     </tr>
 </table>
+    </article>
+    <footer id="STOPKA">Stopka serwisu</footer>
+
+</div>
 
 </body>
 </html>

@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Dodaj samochód</title>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
 </head>
 <body>
-<h1>Dodaj Samochód</h1>
 
-<main>
-    <div id="tabelaDodawania">
+<div id="top">
+    <header id="NAGLOWEK"></header>
+    <nav id="MENU">Menu nawigacyjne</nav>
+    <aside id="INFORMACJE">Dodaj Samochód</aside>
+    <article id="TRESC">
+        <main>
+            <div id="tabelaDodawania">
 
 <form th:action="@{/vehicles/vehicles}" th:object="${addedvehicle}" method="post">
 
@@ -99,6 +104,8 @@
 </form>
     </div>
 </main>
-
+    </article>
+    <footer id="STOPKA">Stopka serwisu</footer>
+</div>
 </body>
 </html>

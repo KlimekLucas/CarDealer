@@ -1,0 +1,45 @@
+html, body {
+	background-color: #fff;
+	color: #000;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#top {
+	width: 780px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+#NAGLOWEK {
+	background-color: lightskyblue;
+	background: url(../../../images/header.png) no-repeat;
+    height: 100px;
+        
+}
+
+#MENU {
+	width: 150px;
+	float: left;
+	overflow: hidden;
+	background-color: #ccc;
+}
+
+#TRESC {
+	width: 630px;
+	float: left;
+	overflow: hidden;
+	background-color: gainsboro;
+}
+
+#STOPKA {
+	clear: both;
+	width: 100%;
+	background-color: lightskyblue;
+
+}
+#tabelaDodawania{
+
+}

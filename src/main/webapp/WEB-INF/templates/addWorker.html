@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Dodaj pracownika</title>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
 </head>
 <body>
-<h1>Dodaj pracownika</h1>
 
-<main>
-    <div id="tabelaDodawania">
+<div id="top">
+    <header id="NAGLOWEK"></header>
+    <nav id="MENU">Menu nawigacyjne</nav>
+    <aside id="INFORMACJE">Dodaj Pracownika</aside>
+    <article id="TRESC">
+        <main>
+            <div id="tabelaDodawania">
+
 
 <form th:action="@{/workers/workers}" th:object="${addedWorker}" method="post">
 
@@ -53,6 +59,9 @@
 </form>
     </div>
 </main>
+    </article>
+    <footer id="STOPKA">Stopka serwisu</footer>
+</div>
 
 </body>
 </html>

@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Lista Samochodów</title>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
 </head>
 <body>
-<h1>Lista samochodów</h1>
+
+<div id="top">
+    <header id="NAGLOWEK"></header>
+    <nav id="MENU">Menu nawigacyjne</nav>
+    <aside id="INFORMACJE">Lista dostępnych pojazdów</aside>
+    <article id="TRESC">
+        <main>
+            <div id="lista">
 <table>
     <tr>
         <th>Id</th>
@@ -29,6 +37,10 @@
         <td><a th:href="@{/vehicles/{vehId}/(vehId=${vehicle.id})}" th:text="szczegóły"/></td>
     </tr>
 </table>
-
+            </div>
+        </main>
+    </article>
+    <footer id="STOPKA">Stopka serwisu</footer>
+            </div>
 </body>
 </html>
