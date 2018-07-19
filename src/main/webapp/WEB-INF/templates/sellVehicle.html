@@ -22,49 +22,58 @@
                     <td>klient</td>
                     <td>
                         <input type="text" th:field="*{client}"/>
+                        <span th:if="${#fields.hasErrors('client')}" th:errors="*{client}"/>
+
                     </td>
                 </tr>
                 <tr>
                     <td>pracownik</td>
                     <td>
                         <input type="text" th:field="*{worker}"/>
+                        <span th:if="${#fields.hasErrors('worker')}" th:errors="*{worker}"/>
+
                     </td>
                 </tr>
                 <tr>
                     <td>pojazd</td>
                     <td>
-                        <input type="text" th:field="*{vehicle}"/>
+                        <input type="text" th:field="*{vehicle}" th:errorclass="fieldError"/>
+                        <span th:if="${#fields.hasErrors('vehicle')}" th:errors="*{vehicle}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Data sprzedaży</td>
                     <td>
-                        <input type="date" th:field="*{sellingDate}"/>
+                        <input type="date" th:field="*{sellingDate}" th:errorclass="fieldError"/>
+                        <span th:if="${#fields.hasErrors('sellingDate')}" th:errors="*{sellingDate}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>cena</td>
                     <td>
-                        <input type="text" th:field="*{price}"/>
+                        <input type="text" th:field="*{price}" th:errorclass="fieldError"/>
+                        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>umowa</td>
                     <td>
-                        <input type="text" th:field="*{agreement}"/>
+                        <input type="text" th:field="*{agreement}" th:errorclass="fieldError"/>
+                        <span th:if="${#fields.hasErrors('agreement')}" th:errors="*{agreement}"/>
                     </td>
 
                 </tr>
                 <tr>
                     <td>faktura</td>
                     <td>
-                        <input type="text" th:field="*{invoice}"/>
+                        <input type="text" th:field="*{invoice}" th:errorclass="fieldError"/>
+                        <span th:if="${#fields.hasErrors('invoice')}" th:errors="*{invoice}"/>
                     </td>
 
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="Sell Vehicle" />
+                        <input type="submit" value="Sell Vehicle"/>
                     </td>
                 </tr>
             </table>

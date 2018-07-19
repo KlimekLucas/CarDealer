@@ -3,11 +3,13 @@ package sda.Komis.Komis.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import sda.Komis.Komis.dto.SellDto;
 import sda.Komis.Komis.model.Sell;
 import sda.Komis.Komis.service.SellService;
 
+import javax.validation.Valid;
 import java.text.ParseException;
 import java.util.Set;
 
@@ -23,6 +25,7 @@ public class SellController {
     }
 
 
+
     @GetMapping("/sell")
     public String sellVehicleForm(Model model) {
         model.addAttribute("soldVehicle", new SellDto());
@@ -30,8 +33,14 @@ public class SellController {
     }
 
 
+
+
+
     @PostMapping("/sells")
-    public String saveSell(@ModelAttribute SellDto sellDto) {
+    public String saveSell(@Valid @ModelAttribute("soldVehicle") SellDto sellDto, BindingResult bindingResult) {
+    if (bindingResult.hasErrors()) {
+        return "sellVehicle";
+    }
         try {
             sellService.addSell(sellDto);
         } catch (ParseException e) {
@@ -39,6 +48,7 @@ public class SellController {
         }
         return "redirect:/sells";
     }
+
 
     @RequestMapping(method = RequestMethod.GET)
     public String printSoldVehicles(Model model) {

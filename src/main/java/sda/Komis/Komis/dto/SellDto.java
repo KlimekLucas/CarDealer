@@ -3,24 +3,33 @@ package sda.Komis.Komis.dto;
 import sda.Komis.Komis.model.Client;
 import sda.Komis.Komis.model.Vehicle;
 import sda.Komis.Komis.model.Worker;
-
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class SellDto {
 
     private String client;
+
     private String worker;
+
     private String vehicle;
+
     private String sellingDate;
-    private String price;
+    @NotNull(message = "Pole nie może być puste")
+    @Min(value = 5000, message = "Cena musi wynosić min 5000")
+    private Integer price;
+
     private String agreement;
+
     private String invoice;
 
 
     public SellDto() {
     }
 
-    public SellDto(String client, String worker, String vehicle, String sellingDate, String price, String agreement, String invoice) {
+    public SellDto(String client, String worker, String vehicle, String sellingDate, Integer price, String agreement, String invoice) {
         this.client = client;
         this.worker = worker;
         this.vehicle = vehicle;
@@ -63,11 +72,11 @@ public class SellDto {
         this.sellingDate = sellingDate;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer  price) {
         this.price = price;
     }
 

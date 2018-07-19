@@ -4,6 +4,7 @@ package sda.Komis.Komis.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -21,6 +22,7 @@ public class Sell extends BaseModel implements Serializable{
     @JoinColumn(name = "vehicleId")
     private Vehicle vehicle;
     private Date sellingDate;
+
     private Integer price;
     private String agreement;
     private String invoice;
