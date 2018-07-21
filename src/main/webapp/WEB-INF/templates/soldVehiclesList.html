@@ -20,14 +20,14 @@
         <th>power</th>
         <th>gearbox</th>
         <th>desctipton</th>
-        <th>TestDives</th>
+        <th>TestDrives</th>
         <th>sold</th>
 
     </tr>
     <tr th:each="vehicle , iterationInfo : ${vehiclesList}">
         <td th:text="${vehicle.id}"/>
         <td th:text="${vehicle.ProductionDate}"/>
-        <td th:text="${vehicle.manufacturer}"/>
+        <td th:text="${vehicle.manufacturer.name}"/>
         <td th:text="${vehicle.model}"/>
         <td th:text="${vehicle.OCNumber}"/>
         <td th:text="${vehicle.IDNumber}"/>
@@ -37,7 +37,7 @@
         <td th:text="${vehicle.power}"/>
         <td th:text="${vehicle.gearbox}"/>
         <td th:text="${vehicle.desctipton}"/>
-        <td th:text="${vehicle.TestDives}"/>
+        <td th:text="${vehicle.TestDrives}"/>
         <td th:text="${vehicle.sold}"/>
 
         <td th:text="${iterationInfo.count + ' of total ' + iterationInfo.size}"/>

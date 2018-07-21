@@ -13,7 +13,10 @@ public class Vehicle extends BaseModel  implements Serializable {
 
 
     private Integer ProductionDate;
-    private String manufacturer;
+
+    @OneToOne
+    @JoinColumn(name = "manufacturerId")
+    private Manufacturer manufacturer;
     private String model;
     private String OCNumber;
     //  @Column (name = "numer_rejestracyny")
@@ -27,14 +30,14 @@ public class Vehicle extends BaseModel  implements Serializable {
     private String power;
     private String gearbox;
     private String desctipton;
-    private Integer TestDives;
+    private Integer TestDrives;
     private boolean sold;
 
 
     public Vehicle() {
     }
 
-    public Vehicle(Integer productionDate, String manufacturer, String model, String OCNumber, String IDNumber, Fuel fuel, Integer milage, String engine, String power, String gearbox, String desctipton, Integer testDives, boolean sold) {
+    public Vehicle(Integer productionDate, Manufacturer manufacturer, String model, String OCNumber, String IDNumber, Fuel fuel, Integer milage, String engine, String power, String gearbox, String desctipton, Integer testDrives, boolean sold) {
         ProductionDate = productionDate;
         this.manufacturer = manufacturer;
         this.model = model;
@@ -46,7 +49,7 @@ public class Vehicle extends BaseModel  implements Serializable {
         this.power = power;
         this.gearbox = gearbox;
         this.desctipton = desctipton;
-        TestDives = testDives;
+        TestDrives = testDrives;
         this.sold = sold;
     }
 
@@ -59,11 +62,11 @@ public class Vehicle extends BaseModel  implements Serializable {
         ProductionDate = productionDate;
     }
 
-    public String getManufacturer() {
+    public Manufacturer getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
+    public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
 
@@ -139,12 +142,12 @@ public class Vehicle extends BaseModel  implements Serializable {
         this.desctipton = desctipton;
     }
 
-    public Integer getTestDives() {
-        return TestDives;
+    public Integer getTestDrives() {
+        return TestDrives;
     }
 
-    public void setTestDives(Integer testDives) {
-        TestDives = testDives;
+    public void setTestDrives(Integer testDrives) {
+        TestDrives = testDrives;
     }
 
     public boolean isSold() {

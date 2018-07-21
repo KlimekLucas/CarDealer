@@ -29,9 +29,8 @@
                 <tr>
                     <td>pracownik</td>
                     <td>
-                        <input type="text" th:field="*{worker}"/>
+                        <input type="text" th:field="*{worker}" required="required"/>
                         <span th:if="${#fields.hasErrors('worker')}" th:errors="*{worker}"/>
-
                     </td>
                 </tr>
                 <tr>

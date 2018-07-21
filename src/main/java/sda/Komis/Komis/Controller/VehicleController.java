@@ -5,10 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import sda.Komis.Komis.dto.VehicleDto;
-import sda.Komis.Komis.dto.WorkerDto;
+import sda.Komis.Komis.model.Manufacturer;
 import sda.Komis.Komis.model.Vehicle;
-import sda.Komis.Komis.model.Worker;
 import sda.Komis.Komis.service.CarDataService;
+import sda.Komis.Komis.service.ManufacturerService;
 
 import java.text.ParseException;
 import java.util.Set;
@@ -18,16 +18,20 @@ import java.util.Set;
 public class VehicleController {
 
     private final CarDataService carDataService;
+    private final ManufacturerService manufacturerService;
 
-    public VehicleController(CarDataService carDataService) {
+    public VehicleController(CarDataService carDataService, ManufacturerService manufacturerService) {
 
         this.carDataService = carDataService;
+        this.manufacturerService = manufacturerService;
     }
 
 
     @GetMapping("/new")
     public String addVehicleForm(Model model) {
         model.addAttribute("addedvehicle", new VehicleDto());
+        Set<Manufacturer> manufacturers = manufacturerService.findAll() ;
+        model.addAttribute("manufacturersList",  manufacturers);
         return "addVehicle";
     }
 

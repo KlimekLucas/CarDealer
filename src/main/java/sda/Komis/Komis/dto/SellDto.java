@@ -1,28 +1,22 @@
 package sda.Komis.Komis.dto;
 
-import sda.Komis.Komis.model.Client;
-import sda.Komis.Komis.model.Vehicle;
-import sda.Komis.Komis.model.Worker;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
+import javax.validation.constraints.*;
 
 public class SellDto {
-
+    @NotEmpty(message = "Pole nie może być puste")
     private String client;
-
+    @NotEmpty(message = "Pole nie może być puste")
     private String worker;
-
+    @NotEmpty(message = "Pole nie może być puste")
     private String vehicle;
-
+    @NotEmpty(message = "Pole nie może być puste")
     private String sellingDate;
-    @NotNull(message = "Pole nie może być puste")
-    @Min(value = 5000, message = "Cena musi wynosić min 5000")
+    @NotEmpty(message = "Pole nie może być puste")
+    @Min(value = 5000, message = "Cena nie może być mniejsza niż 5000")
     private Integer price;
-
+    @NotEmpty(message = "Pole nie może być puste")
     private String agreement;
-
+    @NotBlank(message = "pole nie moze byc puste")
     private String invoice;
 
 

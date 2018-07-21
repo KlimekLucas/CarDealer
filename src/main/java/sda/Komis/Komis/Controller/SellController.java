@@ -3,6 +3,7 @@ package sda.Komis.Komis.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import sda.Komis.Komis.dto.SellDto;
@@ -37,8 +38,9 @@ public class SellController {
 
 
     @PostMapping("/sells")
-    public String saveSell(@Valid @ModelAttribute("soldVehicle") SellDto sellDto, BindingResult bindingResult) {
+    public String saveSell(@Valid @ModelAttribute("soldVehicle") SellDto sellDto, BindingResult bindingResult, ModelMap modelMap) {
     if (bindingResult.hasErrors()) {
+        modelMap.addAttribute("soldVehicle", sellDto);
         return "sellVehicle";
     }
         try {

@@ -6,7 +6,7 @@ import java.time.Year;
 
 public class VehicleDto {
     private String ProductionDate;
-    private String manufacturer;
+    private Integer manufacturer;
     private String model;
     private String OCNumber;
     //  @Column (name = "numer_rejestracyny")
@@ -17,7 +17,7 @@ public class VehicleDto {
     private String power;
     private String gearbox;
     private String desctipton;
-    private String TestDives;
+    private String TestDrives;
     private String sold;
 
 
@@ -32,11 +32,11 @@ public class VehicleDto {
         ProductionDate = productionDate;
     }
 
-    public String getManufacturer() {
+    public Integer getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
+    public void setManufacturer(Integer manufacturer) {
         this.manufacturer = manufacturer;
     }
 
@@ -112,12 +112,12 @@ public class VehicleDto {
         this.desctipton = desctipton;
     }
 
-    public String getTestDives() {
-        return TestDives;
+    public String getTestDrives() {
+        return TestDrives;
     }
 
-    public void setTestDives(String testDives) {
-        TestDives = testDives;
+    public void setTestDrives(String testDrives) {
+        TestDrives = testDrives;
     }
 
     public String getSold() {
