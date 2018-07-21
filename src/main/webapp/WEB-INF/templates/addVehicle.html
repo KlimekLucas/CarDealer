@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Dodaj samochód</title>
-    <link rel="stylesheet" href="../../css/style.css" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
 </head>
 <body>
 
@@ -50,7 +50,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>numer dowodu rejestracyjnego/td>
+                        <td>numer dowodu rejestracyjnego</td>
                         <td>
                             <input type="text" th:field="*{IDNumber}"/>
                         </td>
@@ -58,7 +58,12 @@
                     <tr>
                         <td>rodzaj paliwa</td>
                         <td>
-                            <input type="text" th:field="*{fuel}"/>
+                            <select th:field="*{fuel}" th:name="fuel">
+                                <option value="">wybierz...</option>
+                                <option th:each="fuel : ${fuelsList}"
+                                        th:value="${fuel.id}"
+                                        th:text="${fuel.Type}"></option>
+                            </select>
                         </td>
                     </tr>
                     <tr>
@@ -100,7 +105,7 @@
 
                     <tr>
                         <td colspan="2">
-                            <input type="submit" value="Add Vehicle"/>
+                            <input type="submit" value="Dodaj Samochód"/>
                         </td>
                     </tr>
                     </table>

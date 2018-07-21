@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Lista Samochodów</title>
-    <link rel="stylesheet" href="../../css/style.css" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
 </head>
 <body>
 
@@ -17,17 +17,19 @@
 <table>
     <tr>
         <th>Id</th>
-        <th>ProductionDate</th>
-        <th>manufacturer</th>
+        <th>data produkcji</th>
+        <th>Marka</th>
+        <th>Logo</th>
         <th>model</th>
-        <th>milage</th>
+        <th>przebieg</th>
 
 
     </tr>
     <tr th:each="vehicle , iterationInfo : ${vehiclesList}">
         <td th:text="${vehicle.id}"/>
         <td th:text="${vehicle.ProductionDate}"/>
-        <td th:text="${vehicle.manufacturer}"/>
+        <td th:text="${vehicle.manufacturer.name}"/>
+        <td><img th:src="${vehicle.manufacturer.logo}"></td>
         <td th:text="${vehicle.model}"/>
         <td th:text="${vehicle.milage}"/>
 

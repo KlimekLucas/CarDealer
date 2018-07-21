@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Sprzedaj samochód</title>
-    <link rel="stylesheet" href="../../css/style.css" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
 </head>
 <body>
 
@@ -36,7 +36,12 @@
                 <tr>
                     <td>pojazd</td>
                     <td>
-                        <input type="text" th:field="*{vehicle}" th:errorclass="fieldError"/>
+                        <select th:field="*{vehicle}" th:name="vehicle">
+                            <option value="">wybierz...</option>
+                            <option th:each="vehicle : ${AvailableVehicles}"
+                                    th:value="${vehicle.id}"
+                                    th:text="${vehicle.manufacturer.name}"></option>
+                        </select>
                         <span th:if="${#fields.hasErrors('vehicle')}" th:errors="*{vehicle}"/>
                     </td>
                 </tr>
@@ -72,7 +77,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="Sell Vehicle"/>
+                        <input type="submit" value="Sprzedaj samochód"/>
                     </td>
                 </tr>
             </table>

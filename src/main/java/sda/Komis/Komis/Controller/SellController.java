@@ -8,6 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import sda.Komis.Komis.dto.SellDto;
 import sda.Komis.Komis.model.Sell;
+import sda.Komis.Komis.model.Vehicle;
+import sda.Komis.Komis.service.CarDataService;
 import sda.Komis.Komis.service.SellService;
 
 import javax.validation.Valid;
@@ -20,9 +22,11 @@ public class SellController {
 
 
     private final SellService sellService;
+    private final CarDataService carDataService;
 
-    public SellController(SellService sellService) {
+    public SellController(SellService sellService, CarDataService carDataService) {
         this.sellService = sellService;
+        this.carDataService = carDataService;
     }
 
 
@@ -30,6 +34,9 @@ public class SellController {
     @GetMapping("/sell")
     public String sellVehicleForm(Model model) {
         model.addAttribute("soldVehicle", new SellDto());
+        Set<Vehicle> AvailableVehicles = carDataService.loadSoldCars() ;
+        model.addAttribute("AvailableVehicles",  AvailableVehicles);
+
         return "sellVehicle";
     }
 

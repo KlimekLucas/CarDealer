@@ -32,6 +32,7 @@ public class DefaultCarDataService implements CarDataService {
 
     @Override
     public Set<Vehicle> loadCarsThatCanBeSold() {
+
         return vehicleRepository.findBySoldEquals(true);
     }
 

@@ -12,12 +12,12 @@ public class Manufacturer extends BaseModel {
 
        String name;
 
-       URL logo;
+       String logo;
 
     public Manufacturer() {
     }
 
-    public Manufacturer(String name, URL logo) {
+    public Manufacturer(String name, String logo) {
         this.name = name;
         this.logo = logo;
     }
@@ -30,11 +30,11 @@ public class Manufacturer extends BaseModel {
         this.name = name;
     }
 
-    public URL getLogo() {
+    public String getLogo() {
         return logo;
     }
 
-    public void setLogo(URL logo) {
+    public void setLogo(String logo) {
         this.logo = logo;
     }
 }

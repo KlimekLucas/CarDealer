@@ -23,6 +23,7 @@ public class Vehicle extends BaseModel  implements Serializable {
     private String IDNumber;
 
     @ManyToOne
+    @JoinColumn(name = "fuelId")
     private Fuel fuel;
 
     private Integer milage;
