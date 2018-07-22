@@ -39,25 +39,34 @@ public class WorkerController {
 
         if (!model.containsAttribute("addedWorker")) {
             model.addAttribute("addedWorker", new WorkerDto());
+            model.addAttribute("availableRoles", availableRoles);
         }
         return "addWorker";
     }
 
     @PostMapping("/workers")
     public String saveWorker(@Valid @ModelAttribute("addedWorker") WorkerDto addedWorker, BindingResult bindingResult, ModelMap modelMap, RedirectAttributes redirectAttributes) {
-        try {
-            workerService.addWorker(addedWorker);
-        } catch (NotFoundException e) {
-            e.getMessage();
-            redirectAttributes.addFlashAttribute("addedWorker", addedWorker );
-            redirectAttributes.addFlashAttribute("error", "nie istnieje");
-                return "redirect:/workers/new";
-        } catch (ParseException e) {
-            e.printStackTrace();
-
+        if (bindingResult.hasErrors()) {
+            modelMap.addAttribute("addedWorker", addedWorker);
+            Set<WorkersRoles> availableRoles = workerRolesService.findAll() ;
+            modelMap.addAttribute("availableRoles", availableRoles);
+            return "addWorker";
         }
-        return "redirect:/workers";
+            try {
+                workerService.addWorker(addedWorker);
+            } catch (NotFoundException e) {
+                e.getMessage();
+                redirectAttributes.addFlashAttribute("addedWorker", addedWorker);
+                redirectAttributes.addFlashAttribute("error", "nie istnieje");
+                return "redirect:/workers/new";
+            } catch (ParseException e) {
+                e.printStackTrace();
+
+            }
+        return "addWorker";
     }
+
+
 
 
     @RequestMapping(method = RequestMethod.GET)

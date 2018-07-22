@@ -24,24 +24,28 @@
             <td>Imie</td>
             <td>
                 <input type="text" th:field="*{name}"/>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
             </td>
         </tr>
         <tr>
             <td>Nazwisko</td>
             <td>
                 <input type="text" th:field="*{lastName}"/>
+                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
             </td>
         </tr>
         <tr>
             <td>Adres</td>
             <td>
                 <input type="text" th:field="*{adress}"/>
+                <span th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}"/>
             </td>
         </tr>
         <tr>
             <td>data zatrudnienia</td>
             <td>
                 <input type="date" th:field="*{hireDate}"/>
+                <span th:if="${#fields.hasErrors('hireDate')}" th:errors="*{hireDate}"/>
             </td>
         </tr>
         <tr>
