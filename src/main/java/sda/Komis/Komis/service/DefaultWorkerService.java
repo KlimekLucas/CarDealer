@@ -38,7 +38,7 @@ public class DefaultWorkerService implements WorkerService{
         worker.setHireDate(simpleDateFormat.parse(addedWorker.getHireDate()));
 
         Optional<WorkersRoles> role = rolesRepository.findById(Long.valueOf(addedWorker.getRoles()));
-        worker.addRole(role.orElseThrow(()->new NotFoundException()));
+        worker.addRole(role.orElseThrow(()->new NotFoundException("nie ma takiej roli")));
 
         return workerRepository.save(worker) ;
     }

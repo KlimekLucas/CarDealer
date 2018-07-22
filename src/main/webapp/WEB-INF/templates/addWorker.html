@@ -46,8 +46,20 @@
         </tr>
         <tr>
             <td>Stanowisko</td>
+
+                <!--<input type="text" th:field="*{roles}"/>-->
             <td>
-                <input type="text" th:field="*{roles}"/>
+                <select th:field="*{roles}" th:name="roles">
+                    <option th:each="roles : ${availableRoles}"
+                            th:value="${roles.id}"
+                            th:text="${roles.role}"></option>
+
+                </select>
+            <span th:if="${error!=null}" th:text="${error}"/>
+            <span th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"/>
+                <span th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"/>
+            </td>
+            <span th:if="${error!=null}" th:text="${error}"/>
             </td>
         </tr>
         <tr>

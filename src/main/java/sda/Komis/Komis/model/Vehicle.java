@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.Year;
 
 
 @Entity
@@ -32,14 +31,12 @@ public class Vehicle extends BaseModel  implements Serializable {
     private String gearbox;
     private String desctipton;
     private Integer TestDrives;
+    private Integer boughtPrice;
     private boolean sold;
 
 
-    public Vehicle() {
-    }
-
-    public Vehicle(Integer productionDate, Manufacturer manufacturer, String model, String OCNumber, String IDNumber, Fuel fuel, Integer milage, String engine, String power, String gearbox, String desctipton, Integer testDrives, boolean sold) {
-        ProductionDate = productionDate;
+    public Vehicle(Integer productionDate, Manufacturer manufacturer, String model, String OCNumber, String IDNumber, Fuel fuel, Integer milage, String engine, String power, String gearbox, String desctipton, Integer testDrives, Integer boughtPrice, boolean sold) {
+        this.ProductionDate = productionDate;
         this.manufacturer = manufacturer;
         this.model = model;
         this.OCNumber = OCNumber;
@@ -50,8 +47,16 @@ public class Vehicle extends BaseModel  implements Serializable {
         this.power = power;
         this.gearbox = gearbox;
         this.desctipton = desctipton;
-        TestDrives = testDrives;
+        this.TestDrives = testDrives;
+        this.boughtPrice = boughtPrice;
         this.sold = sold;
+    }
+
+
+
+
+    public Vehicle() {
+
     }
 
 
@@ -151,6 +156,14 @@ public class Vehicle extends BaseModel  implements Serializable {
         TestDrives = testDrives;
     }
 
+    public Integer getBoughtPrice() {
+        return boughtPrice;
+    }
+
+    public void setBoughtPrice(Integer boughtPrice) {
+        this.boughtPrice = boughtPrice;
+    }
+
     public boolean isSold() {
         return sold;
     }
@@ -159,8 +172,3 @@ public class Vehicle extends BaseModel  implements Serializable {
         this.sold = sold;
     }
 }
-
-
-
-
-

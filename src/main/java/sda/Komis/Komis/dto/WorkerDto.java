@@ -2,18 +2,22 @@ package sda.Komis.Komis.dto;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 
 public class WorkerDto {
 
-
+    @NotBlank(message = "pole nie moze byc puste")
     private String name;
-    @NotNull
+    @NotBlank(message = "pole nie moze byc puste")
     private String lastName;
+    @NotBlank(message = "pole nie moze byc puste")
     private String adress;
+    @NotBlank(message = "pole nie moze byc puste")
     private String hireDate;
+    @NotBlank(message = "pole nie moze byc puste")
     private String roles;
 
 

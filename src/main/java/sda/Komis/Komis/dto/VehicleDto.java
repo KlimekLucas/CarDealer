@@ -1,27 +1,55 @@
 package sda.Komis.Komis.dto;
 
-import sda.Komis.Komis.model.Fuel;
-
-import java.time.Year;
+import javax.validation.constraints.NotBlank;
 
 public class VehicleDto {
+    @NotBlank(message = "pole nie moze byc puste")
     private String ProductionDate;
+    @NotBlank(message = "pole nie moze byc puste")
     private Integer manufacturer;
+    @NotBlank(message = "pole nie moze byc puste")
     private String model;
+    @NotBlank(message = "pole nie moze byc puste")
     private String OCNumber;
-    //  @Column (name = "numer_rejestracyny")
+    @NotBlank(message = "pole nie moze byc puste")
     private String IDNumber;
+    @NotBlank(message = "pole nie moze byc puste")
     private String fuel;
+    @NotBlank(message = "pole nie moze byc puste")
     private String milage;
+    @NotBlank(message = "pole nie moze byc puste")
     private String engine;
+    @NotBlank(message = "pole nie moze byc puste")
     private String power;
+    @NotBlank(message = "pole nie moze byc puste")
     private String gearbox;
+    @NotBlank(message = "pole nie moze byc puste")
     private String desctipton;
+    @NotBlank(message = "pole nie moze byc puste")
     private String TestDrives;
+
+    private String boughtPrice;
     private String sold;
 
+    public VehicleDto(String productionDate,Integer manufacturer,String model,String OCNumber,String IDNumber,String fuel,String milage,String engine,String power,String gearbox,String desctipton, String testDrives, String boughtPrice, String sold) {
+        ProductionDate = productionDate;
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.OCNumber = OCNumber;
+        this.IDNumber = IDNumber;
+        this.fuel = fuel;
+        this.milage = milage;
+        this.engine = engine;
+        this.power = power;
+        this.gearbox = gearbox;
+        this.desctipton = desctipton;
+        TestDrives = testDrives;
+        this.boughtPrice = boughtPrice;
+        this.sold = sold;
+    }
 
     public VehicleDto() {
+
     }
 
     public String getProductionDate() {
@@ -120,6 +148,14 @@ public class VehicleDto {
         TestDrives = testDrives;
     }
 
+    public String getBoughtPrice() {
+        return boughtPrice;
+    }
+
+    public void setBoughtPrice(String boughtPrice) {
+        this.boughtPrice = boughtPrice;
+    }
+
     public String getSold() {
         return sold;
     }
@@ -128,3 +164,4 @@ public class VehicleDto {
         this.sold = sold;
     }
 }
+

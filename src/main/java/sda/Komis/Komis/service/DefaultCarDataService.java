@@ -57,7 +57,7 @@ public class DefaultCarDataService implements CarDataService {
 
         Optional<Fuel> fuel = fuelRepository.findById(Long.valueOf(newVehicleToBeSaved.getFuel()));
         vehicle.setFuel(fuel.orElseThrow(()->new NotFoundException()));
-
+        vehicle.setBoughtPrice(Integer.valueOf(newVehicleToBeSaved.getBoughtPrice()));
         vehicle.setEngine(newVehicleToBeSaved.getEngine());
         vehicle.setDesctipton(newVehicleToBeSaved.getDesctipton());
         vehicle.setTestDrives(Integer.valueOf(newVehicleToBeSaved.getTestDrives()));

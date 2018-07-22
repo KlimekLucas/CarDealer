@@ -9,6 +9,6 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class buy extends BaseModel {
+public class Buy extends BaseModel {
 
 }
