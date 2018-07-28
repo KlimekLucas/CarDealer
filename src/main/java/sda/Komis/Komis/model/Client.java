@@ -7,16 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
 @Data
 public class Client extends BaseModel implements Serializable {
 
+    @NotBlank(message = "pole nie moze byc puste")
     private  String name;
+    @NotBlank(message = "pole nie moze byc puste")
     private  String lastName;
+    @NotBlank(message = "pole nie moze byc puste")
     private  String adress;
+    @NotBlank(message = "pole nie moze byc puste")
     private  String NIP;
+    @NotBlank(message = "pole nie moze byc puste")
+    @Size(min = 10, max = 12, message = "pole musi posiadać 11 znaków")
     private  String Pesel;
 
 

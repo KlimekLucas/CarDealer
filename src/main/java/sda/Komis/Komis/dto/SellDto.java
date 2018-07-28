@@ -11,7 +11,7 @@ public class SellDto {
     private String vehicle;
     @NotEmpty(message = "Pole nie może być puste")
     private String sellingDate;
-    @NotEmpty(message = "Pole nie może być puste")
+    @NotNull(message = "Pole nie może być puste")
     @Min(value = 5000, message = "Cena nie może być mniejsza niż 5000")
     private Integer price;
     @NotEmpty(message = "Pole nie może być puste")

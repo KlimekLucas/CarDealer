@@ -16,15 +16,17 @@ import java.util.Set;
 
 
 @Service
-public class DefaultWorkerService implements WorkerService{
+public class DefaultWorkerService implements WorkerService {
 
     private final WorkerRepository workerRepository;
     private final WorkersRolesRepository rolesRepository;
+
 
     @Autowired
     public DefaultWorkerService(WorkerRepository workerRepository, WorkersRolesRepository rolesRepository) {
         this.workerRepository = workerRepository;
         this.rolesRepository = rolesRepository;
+
     }
 
     @Override
@@ -38,19 +40,29 @@ public class DefaultWorkerService implements WorkerService{
         worker.setHireDate(simpleDateFormat.parse(addedWorker.getHireDate()));
 
         Optional<WorkersRoles> role = rolesRepository.findById(Long.valueOf(addedWorker.getRoles()));
-        worker.addRole(role.orElseThrow(()->new NotFoundException("nie ma takiej roli")));
+        worker.addRole(role.orElseThrow(() -> new NotFoundException("nie ma takiej roli")));
 
-        return workerRepository.save(worker) ;
+        return workerRepository.save(worker);
     }
 
     @Override
     public Set<Worker> getAll() {
         Set<Worker> workers;
-        workers =  workerRepository.getAllByIdIsNotNull();
+        workers = workerRepository.getAllByIdIsNotNull();
         return workers;
     }
-}
 
+    @Override
+    public Worker getById(Long workerId) {
+        return workerRepository.getById(workerId);
+    }
+
+    @Override
+    public void delete(Worker worker) {
+        workerRepository.delete(worker);
+        System.out.println("pracownik został zwolniony");
+    }
+}
 
 //    @Override
 //    public Vehicle addVehicle(Vehicle newVehicleToBeSaved) {

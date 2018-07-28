@@ -12,9 +12,6 @@ import java.util.Set;
 public class WorkersRoles implements Serializable{
 
 
-    public WorkersRoles( String role) {
-        this.role = role;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

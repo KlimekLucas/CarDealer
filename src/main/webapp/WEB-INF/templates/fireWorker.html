@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${worker.name + ' ' + worker.lastName}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+
+<div id="top">
+    <header id="NAGLOWEK"></header>
+    <nav id="MENU">Menu nawigacyjne
+        <div id="UserMenu" >
+            <h1>menu użytkownika</h1><br>
+            <a href="../../vehicles">lista dostępnych samochodów</a><br>
+            <a href="../../vehicles/new">dodaj samochód</a><br>
+        </div>
+
+        <div id="AdminMenu">
+            <h1>menu admina</h1>
+            <a href="../../vehicles">lista dostępnych samochodów</a><br>
+            <a href="../../vehicles/new">dodaj samochód</a><br>
+            <a href="../../workers/new">dodaj pracownika</a><br>
+            <a href="../../clients/new">dodaj klienta</a><br>
+
+        </div>
+    </nav>
+    <aside id="INFORMACJE"><h2>Czy na pewno chcesz zwolnić poniższego pracownika ??</h2> </aside>
+    <article id="TRESC">
+
+        <table th:object="${worker}" style="border: 1px solid black">
+            <tr>
+                <td>Id</td>
+                <td th:text="*{id}"/>
+            </tr>
+            <tr>
+                <td>Imie</td>
+                <td th:text="*{name}"/>
+            </tr>
+            <tr>
+                <td>Nazwisko</td>
+                <td th:text="*{lastName}"/>
+            </tr>
+            <tr>
+                <td>Adres</td>
+                <td th:text="*{adress}"/>
+            </tr>
+            <tr>
+                <td>Data przyjęcia/td>
+                <td th:text="*{hireDate}"/>
+            </tr>
+            <tr>
+                <td>role</td>
+                <td th:text="*{roles}"/>
+            </tr>
+        </table>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Zwolnij pracownika"/>
+            </td>
+        </tr>
+    </article>
+
+    <footer id="STOPKA">Stopka serwisu</footer>
+</div>
+
+</body>
+</html>

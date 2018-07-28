@@ -4,11 +4,15 @@ package sda.Komis.Komis.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import sda.Komis.Komis.model.Client;
 import sda.Komis.Komis.model.Worker;
 import sda.Komis.Komis.service.ClientService;
 
+import javax.validation.Valid;
+import java.text.ParseException;
 import java.util.Set;
 
 @Controller
@@ -31,7 +35,11 @@ public class ClientController {
 
     @PostMapping("/clients")
     public String saveClient(
-            @ModelAttribute("addedClient") Client newClient) {
+            @Valid @ModelAttribute("addedClient") Client newClient, BindingResult bindingResult, ModelMap modelMap) {
+        if (bindingResult.hasErrors()) {
+            modelMap.addAttribute("addedClient", newClient);
+            return "addClient";
+        }
         clientService.addClient(newClient);
         return "redirect:/clients";
     }

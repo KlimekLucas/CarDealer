@@ -12,5 +12,7 @@ import java.util.Set;
 public interface WorkerService {
     Worker addWorker(WorkerDto newWorkerToBeSaved) throws ParseException;
     Set<Worker> getAll();
+    Worker getById(Long workerId);
+    void delete(Worker worker);
 
 }

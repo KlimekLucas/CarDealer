@@ -14,13 +14,13 @@
         <nav id="MENU">Menu nawigacyjne
             <div id="UserMenu" >
                 <h1>menu użytkownika</h1><br>
-                <a href="../vehicles/">lista dostępnych samochodów</a><br>
+                <a href="../vehicles">lista dostępnych samochodów</a><br>
                 <a href="../vehicles/new">dodaj samochód</a><br>
             </div>
 
             <div id="AdminMenu">
                 <h1>menu admina</h1>
-                <a href="../vehicles/">lista dostępnych samochodów</a><br>
+                <a href="../vehicles">lista dostępnych samochodów</a><br>
                 <a href="../vehicles/new">dodaj samochód</a><br>
                 <a href="../workers/new">dodaj pracownika</a><br>
                 <a href="../clients/new">dodaj klienta</a><br>
@@ -40,30 +40,35 @@
                     <td>Imie</td>
                     <td>
                         <input type="text" th:field="*{name}"/>
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Nazwisko</td>
                     <td>
                         <input type="text" th:field="*{lastName}"/>
+                        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Adres</td>
                     <td>
                         <input type="text" th:field="*{adress}"/>
+                        <span th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>NIP</td>
                     <td>
                         <input type="text" th:field="*{NIP}"/>
+                        <span th:if="${#fields.hasErrors('NIP')}" th:errors="*{NIP}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Pesel</td>
                     <td>
                         <input type="text" th:field="*{Pesel}"/>
+                        <span th:if="${#fields.hasErrors('Pesel')}" th:errors="*{Pesel}"/>
                     </td>
                 </tr>
                 <tr>

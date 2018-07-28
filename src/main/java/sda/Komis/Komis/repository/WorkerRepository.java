@@ -7,4 +7,8 @@ import java.util.Set;
 
 public interface WorkerRepository extends CrudRepository<Worker,Long> {
     Set<Worker> getAllByIdIsNotNull();
+    Worker getById(Long id);
+
+    @Override
+    void delete(Worker worker);
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Workers</title>
-    <link rel="stylesheet" th:object="${soldVehicle}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
 </head>
 <body>
 
@@ -12,13 +12,13 @@
     <nav id="MENU">Menu nawigacyjne
         <div id="UserMenu" >
             <h1>menu użytkownika</h1><br>
-            <a href="../vehicles/">lista dostępnych samochodów</a><br>
+            <a href="../vehicles">lista dostępnych samochodów</a><br>
             <a href="../vehicles/new">dodaj samochód</a><br>
         </div>
 
         <div id="AdminMenu">
             <h1>menu admina</h1>
-            <a href="../vehicles/">lista dostępnych samochodów</a><br>
+            <a href="../vehicles">lista dostępnych samochodów</a><br>
             <a href="../vehicles/new">dodaj samochód</a><br>
             <a href="../workers/new">dodaj pracownika</a><br>
             <a href="../clients/new">dodaj klienta</a><br>
@@ -47,7 +47,7 @@
         <td th:text="${worker.roles}"/>
 
         <td th:text="${iterationInfo.count + ' of total ' + iterationInfo.size}"/>
-        <td><a th:href="@{/workers/{workerId}/fire(workerId=${worker.id})}" th:text="fire"/></td>
+        <td><a th:href="@{/workers/fire/{workerId} (workerId=${worker.id})}" th:text="fire"/></td>
     </tr>
 </table>
 
