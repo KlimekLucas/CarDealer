@@ -39,6 +39,7 @@ public class Worker extends BaseModel implements Serializable {
         this.roles = roles;
     }
 
+
     public void addRole(WorkersRoles workersRoles) {
         if (roles == null) {
             roles = new HashSet<>();

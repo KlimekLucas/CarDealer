@@ -11,6 +11,11 @@ import java.util.Set;
 @Data
 public class WorkersRoles implements Serializable{
 
+
+    public WorkersRoles( String role) {
+        this.role = role;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
