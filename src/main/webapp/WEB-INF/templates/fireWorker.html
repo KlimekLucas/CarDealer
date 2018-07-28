@@ -46,19 +46,23 @@
                 <td th:text="*{adress}"/>
             </tr>
             <tr>
-                <td>Data przyjęcia/td>
+                <td>Data przyjęcia</td>
                 <td th:text="*{hireDate}"/>
             </tr>
             <tr>
                 <td>role</td>
                 <td th:text="*{roles}"/>
             </tr>
-        </table>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Zwolnij pracownika"/>
+
+
+            <td>
+                <a th:href="@{/workers/fire/{workerId}/fired (workerId=${worker.id})}" th:text="fire"/>
             </td>
-        </tr>
+
+            </form>
+            </td>
+        </table>
+
     </article>
 
     <footer id="STOPKA">Stopka serwisu</footer>

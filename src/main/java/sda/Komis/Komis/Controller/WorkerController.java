@@ -82,14 +82,15 @@ public class WorkerController {
             @PathVariable("workerId") Long workerId,
             Model model) {
         Worker worker = workerService.getById(workerId);
+        Long workerIde = worker.getId();
 //        workerService.delete(worker);
         if (worker != null) {
             model.addAttribute("worker", worker);
+            model.addAttribute("workerIde",workerIde);
         }
         return "fireWorker";
     }
-
-
+//    PathVariable
     @RequestMapping("fire/{workerId}/fired")
     public String DeleteWorker(@PathVariable("workerId")Long workerId, Model model) {
         Worker worker = workerService.getById(workerId);
